@@ -1,0 +1,26 @@
+body{
+    font-family: 'Roboto', sans-serif;
+
+}
+.title > h1 {
+    background-color: lightblue;
+    text-align: center;
+}
+.sidebar{
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    background-color: blue;
+    overflow-x: hidden;
+}
+.main {
+    background-color: lightskyblue;
+    margin-left: 200px;
+    width: 50%;
+}
+table, th, td {
+    border: 1px solid black;
+    width: 100%;
+  }
