@@ -28,31 +28,77 @@
   </div>
   <div class="sidebar"></div>
   <div class="main">
-    <form id="students">
-      <div class="form-group">
-        <label for="MSSV">MSSV</label>
-        <input type="text" class="form-control" id="MSSV" aria-describedby="emailHelp" placeholder="Nhập MSSV">
-      </div>
-      <div class="form-group">
-        <label for="name">Họ và tên</label>
-        <input type="text" class="form-control" id="name" placeholder="Họ và tên">
-      </div>
-        <label for="gender">Giới tính</label>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-          <label class="form-check-label" for="inlineRadio1">Nam</label>
+      <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link active" id="nav-edit-tab" data-toggle="tab" href="#nav-edit" role="tab" aria-controls="nav-edit" aria-selected="false">Edit</a>
+            <a class="nav-item nav-link" id="nav-add-tab" data-toggle="tab" href="#nav-add" role="tab" aria-controls="nav-add" aria-selected="true">Add</a>
+          </div>
+        </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade  show active" id="nav-edit" role="tabpanel" aria-labelledby="nav-edit-tab">
+            <form id="students edit">
+                <div class="form-group">
+                  <label for="MSSV">MSSV</label>
+                  <input type="text" class="form-control" id="MSSVEdit" aria-describedby="emailHelp" placeholder="Nhập MSSV">
+                </div>
+                <div class="form-group">
+                  <label for="name">Họ và tên</label>
+                  <input type="text" class="form-control" id="nameEdit" placeholder="Họ và tên">
+                </div>
+                  <label for="gender">Giới tính</label>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="maleEdit" value="Nam">
+                    <label class="form-check-label" for="male">Nam</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="femaleEdit" value="Nữ">
+                    <label class="form-check-label" for="female">Nữ</label>
+                  </div>
+                <div class="form-group">
+                  <label for="faculty">Khoa</label>
+                  <input type="text" class="form-control" id="facultyEdit" placeholder="Khoa">
+                </div>
+                <button type="button"  class="btn btn-primary">Save</button>
+              </form>
         </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-          <label class="form-check-label" for="inlineRadio2">Nữ</label>
+        <div class="tab-pane fade" id="nav-add" role="tabpanel" aria-labelledby="nav-add-tab"> 
+
+            <form id="students add">
+                <div class="form-group">
+                  <label for="MSSV">MSSV</label>
+                  <input type="text" class="form-control" id="MSSV" aria-describedby="emailHelp" placeholder="Nhập MSSV">
+                </div>
+                <div class="form-group">
+                  <label for="name">Họ và tên</label>
+                  <input type="text" class="form-control" id="name" placeholder="Họ và tên">
+                </div>
+                  <label for="gender">Giới tính</label>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="male" value="Nam">
+                    <label class="form-check-label" for="male">Nam</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="female" value="Nữ">
+                    <label class="form-check-label" for="female">Nữ</label>
+                  </div>
+                <div class="form-group">
+                  <label for="faculty">Khoa</label>
+                  <input type="text" class="form-control" id="faculty" placeholder="Khoa">
+                </div>
+                <button type="button" onclick="addClick()"  class="btn btn-primary">OK</button>
+              </form>
         </div>
-      <div class="form-group">
-        <label for="faculty">Khoa</label>
-        <input type="text" class="form-control" id="faculty" placeholder="Khoa">
-      </div>
-      <button type="button" onclick="addClick()"  class="btn btn-primary">OK</button>
-    </form>
+    </div>
+    
+    <!-- <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...</div>
+      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+    </div> -->
+    
+    
   </div>
+  
 </body>
 
 </html>
