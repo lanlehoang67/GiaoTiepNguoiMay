@@ -1,12 +1,14 @@
-body{
+body {
     font-family: 'Roboto', sans-serif;
 
 }
-.title > h1 {
+
+.title>h1 {
     background-color: lightblue;
     text-align: center;
 }
-.sidebar{
+
+.sidebar {
     height: 100%;
     width: 160px;
     position: fixed;
@@ -15,12 +17,35 @@ body{
     background-color: blue;
     overflow-x: hidden;
 }
+
 .main {
-    background-color: lightskyblue;
     margin-left: 200px;
-    width: 50%;
 }
-table, th, td {
-    border: 1px solid black;
+
+.form-control.search {
+    width: 25%;
+    float: right;
+}
+
+.form-control.select {
+    width: 25%;
+    float: right;
+}
+
+table {
     width: 100%;
-  }
+}
+
+th,
+td {
+    border: 1px solid black;
+    height: 50px;
+
+}
+
+th {
+    text-align: center !important;
+}
+.add {
+    width: 200px;
+}
