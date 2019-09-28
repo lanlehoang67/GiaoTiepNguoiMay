@@ -3,30 +3,40 @@ const addClick = () => {
     var name = document.getElementById("name").value;
     var gender = document.querySelector('input[name="gender"]:checked').value;
     var faculty = document.getElementById("faculty").value;
+    var mark = document.getElementById("mark").value;
     var newStudent = {
         id,
         name,
         gender,
-        faculty
+        faculty,
+        mark
     }
-    var studentsList = JSON.parse(window.localStorage.getItem("students"));
-    if (newStudent != null) {
-        studentsList = studentsList === null ? [newStudent] : [...studentsList, newStudent]
-
+    if(checkExist(newStudent)){
+        alert("the id has already been in database, please try another id");
     }
-    window.localStorage.setItem('students', JSON.stringify(studentsList));
-    location.href = "/home.html";
+    else{
+        var studentsList = JSON.parse(window.localStorage.getItem("students"));
+        if (newStudent != null) {
+            studentsList = studentsList === null ? [newStudent] : [...studentsList, newStudent]
+    
+        }
+        window.localStorage.setItem('students', JSON.stringify(studentsList));
+        location.href = "/home.html";
+    }
+   
 }
 const editClick = () => {
-    var id = document.getElementById("MSSVEdit").value;
-    var name = document.getElementById("nameEdit").value;
-    var gender = document.querySelector('input[name="genderEdit"]:checked').value;
-    var faculty = document.getElementById("facultyEdit").value;
+    var id = document.getElementById("MSSV").value;
+    var name = document.getElementById("name").value;
+    var gender = document.querySelector('input[name="gender"]:checked').value;
+    var faculty = document.getElementById("faculty").value;
+    var mark = document.getElementById("mark").value;
     var newStudent = {
         id,
         name,
         gender,
-        faculty
+        faculty,
+        mark
     }
     var studentsList = window.localStorage.getItem("students") == null ? null : JSON.parse(window.localStorage.getItem("students"));
     var filteredStudentsList = removeNullValues(studentsList);
@@ -43,6 +53,9 @@ const removeNullValues = arr => {
         return e != null;
     })
     return newArr
+}
+const clearAll = () =>{
+    document.getElementById("students").reset()
 }
 const deleteStudent = row => {
     var selectedRow = row.closest('tr');
@@ -61,7 +74,8 @@ const show = row => {
         id: selectedRow.cells[1].innerHTML,
         name: selectedRow.cells[2].innerHTML,
         gender: selectedRow.cells[3].innerHTML,
-        faculty: selectedRow.cells[4].innerHTML
+        faculty: selectedRow.cells[4].innerHTML,
+        mark: selectedRow.cells[5].innerHTML
     }
     window.localStorage.setItem("selectedStudent", JSON.stringify(selectedStudent));
     location.href = "/add.html"
@@ -69,14 +83,15 @@ const show = row => {
 const showInformation = () => {
     var student = JSON.parse(window.localStorage.getItem("selectedStudent"));
     if (checkExist(student)) {
-        document.getElementById("MSSVEdit").value = student['id'];
-        document.getElementById("nameEdit").value = student['name']
-        student['gender'] == "Nam" ? document.getElementById("maleEdit").checked = true : document.getElementById("femaleEdit").checked = true;
-        document.getElementById("facultyEdit").value = student['faculty'];
+        document.getElementById("MSSV").value = student['id'];
+        document.getElementById("name").value = student['name']
+        student['gender'] == "Nam" ? document.getElementById("male").checked = true : document.getElementById("female").checked = true;
+        document.getElementById("faculty").value = student['faculty'];
+        document.getElementById("mark").value = student['mark'];
     }
 }
 const search = () => {
-    var input = document.getElementsByClassName("form-control search")[0];
+    var input = document.getElementsByClassName("search")[0];
     var table = document.getElementById("students");
     var tr = table.getElementsByTagName("tr");
     for (var i = 1; i < tr.length; i = i + 1) {
@@ -153,7 +168,7 @@ const display = () => {
                     var property = student[key];
                     rows += "<th>" + property + "</th>";
                 })
-                rows += '<th><button class="btn btn-primary" onClick=show(this)>Show</button><button class="btn btn-danger" onClick=deleteStudent(this)>Delete</button></th>' + "</tr>";
+                rows += '<th><button class="primary" onClick=show(this)>Show</button><button class="danger" style="background-color: red" onClick=deleteStudent(this)>Delete</button></th>' + "</tr>";
             }
         })
     }
@@ -171,6 +186,18 @@ const setNumber = () => {
             row.cells[0].innerHTML = stt;
         }
     })
+}
+const setColor = e => {
+    if(e.style.color === "blue"){
+        e.style.color = "black";
+    }
+    else e.style.color = "blue";
+}
+const restoreColor = () => {
+    var ths = document.getElementsByTagName('TH');
+    for(var i = 0;i<5;i=i+1){
+        ths[i].style.color = "black"
+    }
 }
 document.addEventListener("DOMContentLoaded", function (event) {
     if (location.href.includes("home.html")) {
