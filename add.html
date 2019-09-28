@@ -47,18 +47,18 @@
                 </div>
                   <label for="gender">Giới tính</label>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gender" id="maleEdit" value="Nam">
+                    <input class="form-check-input" type="radio" name="genderEdit" id="maleEdit" value="Nam">
                     <label class="form-check-label" for="male">Nam</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gender" id="femaleEdit" value="Nữ">
+                    <input class="form-check-input" type="radio" name="genderEdit" id="femaleEdit" value="Nữ">
                     <label class="form-check-label" for="female">Nữ</label>
                   </div>
                 <div class="form-group">
                   <label for="faculty">Khoa</label>
                   <input type="text" class="form-control" id="facultyEdit" placeholder="Khoa">
                 </div>
-                <button type="button"  class="btn btn-primary">Save</button>
+                <button type="button" onclick="editClick()" class="btn btn-primary">Save</button>
               </form>
         </div>
         <div class="tab-pane fade" id="nav-add" role="tabpanel" aria-labelledby="nav-add-tab"> 
@@ -89,14 +89,6 @@
               </form>
         </div>
     </div>
-    
-    <!-- <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...</div>
-      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
-      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
-    </div> -->
-    
-    
   </div>
   
 </body>

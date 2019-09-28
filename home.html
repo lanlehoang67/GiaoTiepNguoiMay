@@ -16,19 +16,15 @@
     <div class="title"><h1>Quản lý sinh viên</h1></div>
     <div class="sidebar"></div>
     <div class="main">
-        <button class="btn btn-primary add" onClick="location.href='add.html'">Add</button>
-        <select class="form-control select">
-                <option value="Nam">Nam</option>
-                <option value="Nữ">Nữ</option>
-            </select>
-        <input type="text" class="form-control search" placeholder="Tìm kiếm">
+        <button class="add" onClick="location.href='add.html'">Add</button>
+        <input type="text" onchange="search()" class="search" placeholder="Tìm kiếm">
         <table id="students">
             <tr>
-                <th>STT</th>
-                <th>MSSV</th>
-                <th>Họ và tên</th>
-                <th>Giới tính</th>
-                <th>Khoa</th>
+                <th onclick="sortTable(0)">STT</th>
+                <th onclick="sortTable(1)">MSSV</th>
+                <th onclick="sortTable(2)">Họ và tên</th>
+                <th onclick="sortTable(3)">Giới tính</th>
+                <th onclick="sortTable(4)">Khoa</th>
                 <th>Action</th>
             </tr>
         </table>
