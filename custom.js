@@ -193,10 +193,13 @@ const setColor = e => {
     }
     else e.style.color = "blue";
 }
-const restoreColor = () => {
+const restoreColor = e => {
+    var index = [...e.parentElement.children].indexOf(e);
     var ths = document.getElementsByTagName('TH');
-    for(var i = 0;i<5;i=i+1){
-        ths[i].style.color = "black"
+    for(var i = 0;i<=5;i=i+1){
+        if(i!= index){
+            ths[i].style.color = "black"
+        }
     }
 }
 document.addEventListener("DOMContentLoaded", function (event) {
